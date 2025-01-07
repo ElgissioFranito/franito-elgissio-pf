@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --primary: #192E40;
+  --secondary: #124C69;
+  --tertiary: #0A73A7;
+  --four: #08A7DC;
+  --five: #19B8EC;
+
+  // transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+[data-theme="light"] {
+  --text-color : rgb(39, 39, 39);
+  --primary: #F2F8FC;
+  --secondary: #E0F0F8;
+  --tertiary: #A0D0EA;
+  --four: #66B2DD;
+  --five: #2996CC;
+}
+
+[data-theme="dark"] {
+  --text-color : rgb(255, 255, 255);
+
+  --primary: #192E40;
+  --secondary: #124C69;
+  --tertiary: #0A73A7;
+  --four: #08A7DC;
+  --five: #19B8EC;
+}
+
+[data-theme="light"],
+[data-theme="dark"] {
+  /* Applique la transition pour tous les thèmes */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  background-color: var(--primary);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

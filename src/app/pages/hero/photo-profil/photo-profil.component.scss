@@ -1,0 +1,14 @@
+.photo-profil-container {
+    @apply w-full h-full flex items-center justify-center;
+
+    .image-container {
+        @apply flex items-center justify-center rounded-full overflow-hidden;
+
+        width: 600px;
+        height: 600px;
+
+        img {
+            @apply w-full h-full object-cover;
+        }
+    }
+}
