@@ -1,5 +1,9 @@
 <div class="photo-profil-container">
     <div class="image-container">
-        <img src="photo-profil.png" alt="Photo de Franito Elgissio RANDRIAMANARINA">
+        @if (sharedService.theme() === 'dark') {
+            <img src="profil-dark.png" alt="Photo de Franito Elgissio RANDRIAMANARINA">
+        } @else {
+            <img src="profil-light.png" alt="Photo de Franito Elgissio RANDRIAMANARINA">
+        }
     </div>
 </div>

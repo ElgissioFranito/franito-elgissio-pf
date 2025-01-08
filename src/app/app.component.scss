@@ -1,5 +1,5 @@
 .app-container {
-    @apply w-screen h-screen flex flex-col relative;
+    @apply w-full flex flex-col relative;
 
     background-color: transparent;
     transition: var(--transition);

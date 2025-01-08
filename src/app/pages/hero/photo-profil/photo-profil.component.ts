@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { SharedService } from '../../../services/shared.service';
 
 @Component({
   selector: 'app-photo-profil',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './photo-profil.component.scss'
 })
 export class PhotoProfilComponent {
-
+  sharedService = inject(SharedService);
 }

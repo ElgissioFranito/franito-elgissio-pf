@@ -3,14 +3,14 @@
     max-lg:flex-col max-lg:justify-center max-lg:gap-10 max-lg:items-center px-10 relative;
 
     .arrow-down {   
-        @apply absolute bottom-4 bg-transparent rounded-full shadow-md opacity-50
+        @apply absolute bottom-4 bg-transparent rounded-full opacity-50
         h-20 w-20 animate-bounce;
         padding: 0 !important;
         translate: -50% 0;
         left: 50% !important;
 
         svg {
-            @apply w-full h-full text-primary;
+            @apply w-full h-full text-primary rounded-full m-0 p-0;
         }
     }
 }

@@ -4,17 +4,20 @@
     width: 50vw;
 
     .image-container {
-        @apply flex items-center justify-center rounded-full overflow-hidden shadow-xl;
+        @apply flex items-center justify-center;
 
         min-width: 300px;
         width: 60%;
         
-        aspect-ratio: 1;
+        // aspect-ratio: 1;
 
         img {
-            @apply w-full h-full object-cover;
+            @apply w-full h-full object-cover drop-shadow-[0_5px_15px_rgba(0,0,0,0.15)];
 
             object-position: 23% 23%;
+            // filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+            transition: var(--transition);
+            
         }
     }
 }
