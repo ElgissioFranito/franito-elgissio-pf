@@ -1,11 +1,31 @@
 .presentation-container {
-    @apply flex flex-col items-center justify-center gap-5;
-}
+    @apply flex flex-col items-center justify-center gap-5 text-center h-screen max-lg:h-fit;
 
-.name {
-    @apply text-4xl font-bold flex bg-slate-300 py-5 px-8 rounded-full shadow-md bg-opacity-15;
-}
+    // width: 45vw;
 
-.description {
-    @apply uppercase text-xl opacity-60;
+    .name {
+        @apply text-4xl font-bold flex bg-slate-300 py-5 px-8 rounded-full shadow-md bg-opacity-15 max-lg:text-3xl max-sm:text-2xl w-full text-center;
+    }
+
+    .description {
+        @apply uppercase text-xl opacity-60 w-full;
+    }
+
+    .social-contact {
+        @apply flex gap-6;
+
+        .social-item {
+            @apply w-10 h-10 rounded-full bg-primary;
+
+            svg {
+                @apply w-full h-full text-secondary hover:scale-105
+                active:scale-95;
+
+                path {
+                    fill: var(--five);
+                }
+            }
+        }
+    }
+
 }

@@ -1,18 +1,46 @@
 .nav-container {
-    @apply fixed top-4 left-1/2 transform -translate-x-1/2 bg-secondary py-2 px-6 rounded-full shadow-md flex items-center space-x-8 backdrop-blur bg-opacity-60;
-    
+    @apply fixed top-4 left-1/2 transform -translate-x-1/2 bg-secondary-50 py-2 px-3 rounded-full shadow-md flex items-center space-x-8
+    z-50 w-16;
 
-    .nav-item {
-        @apply text-sm hover:text-five cursor-pointer uppercase hover:scale-x-105 hover:bg-gray-400 hover:bg-opacity-10 rounded-full py-2 px-4 
-        transition-all duration-300 ease-in-out;
+    transition: var(--transition);
+    
+    &:hover {
+        width: 460px;
+        .items {
+            @apply w-full opacity-100 mr-14;
+            
+        }
+
+        .menu-button {
+            @apply right-6;
+        }
     }
 
-    .menu-dot {
-        @apply w-1.5 h-1.5 bg-textColor rounded-full;
+
+    .items {
+        @apply w-0 opacity-0 overflow-hidden flex gap-3;
+        
+        transition: var(--transition);
+
+        .nav-item {
+            @apply text-sm hover:text-five cursor-pointer uppercase hover:scale-x-105 hover:bg-gray-400 hover:bg-opacity-10 rounded-full p-2 px-4 break-keep;
+
+            transition: var(--transition);
+        }
     }
 
     .menu-button {
-        @apply ml-4 bg-secondary w-8 h-8 rounded-full flex items-center justify-center hover:bg-tertiary transition-colors;
+        @apply absolute bg-transparent w-8 h-8 rounded-full flex items-center justify-center hover:bg-tertiary right-4;
+
+        margin: 0 !important;
+        transition: var(--transition);
+
+    }
+
+
+    .menu-dot {
+        @apply w-1.5 h-1.5 bg-textColor rounded-full;
+
+        transition: var(--transition);
     }
 }
-

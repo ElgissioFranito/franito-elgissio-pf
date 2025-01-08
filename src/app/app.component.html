@@ -1,8 +1,13 @@
-<div class="w-screen h-screen flex flex-col">
+<div class="app-container" (mousemove)="onMouseMove($event)" 
+[ngClass]="{ 'dark-bg' : sharedService.theme() === 'dark' , 'light-bg': sharedService.theme() === 'light'}">
 
   <app-nav-bar />
-  <app-hero />
 
+  <app-hero />
+  
+  <app-about />
+  
+  
   <div class="toggle">
     <button (click)="toggleTheme()" class="p-2 bg-four rounded">
       Toggle Theme
@@ -16,4 +21,5 @@
       Bouton avec une couleur secondaire
     </button>
   </div>
+
 </div>
