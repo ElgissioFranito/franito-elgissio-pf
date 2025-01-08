@@ -111,3 +111,7 @@ body {
   color: var(--text-color);
   transition: var(--transition);
 }
+
+html {
+  scroll-behavior: smooth;
+}

@@ -4,11 +4,12 @@
     // width: 45vw;
 
     .name {
-        @apply text-4xl font-bold flex bg-slate-300 py-5 px-8 rounded-full shadow-md bg-opacity-15 max-lg:text-3xl max-sm:text-2xl w-full text-center;
+        @apply text-4xl font-bold flex bg-slate-300 py-5 px-8 rounded-full shadow-md bg-opacity-15 max-lg:text-3xl max-sm:text-2xl w-full
+        justify-center;
     }
 
     .description {
-        @apply uppercase text-xl opacity-60 w-full;
+        @apply uppercase opacity-60 w-full max-lg:text-lg;
     }
 
     .social-contact {
