@@ -11,19 +11,22 @@ export class DetailAboutComponent {
   @ViewChild('detailAboutElement') detailAboutElement!: ElementRef;
 
   ngAfterViewInit() {
-    gsap.from(this.detailAboutElement.nativeElement, {
-      scrollTrigger: {
-        trigger: this.detailAboutElement.nativeElement,
-        start: 'top 90%',
-        end: 'bottom 75%',
-        toggleActions: 'play none none reverse',
-        markers: false,
-        scrub: true
-      },
-      opacity: 0,
-      y: -200,
-      scale: 0.8
-    });
+    document.querySelectorAll('app-detail-about p').forEach((element) => {
+      gsap.from(element, {
+        scrollTrigger: {
+          trigger: element,
+          start: 'top 90%',
+          end: 'bottom 75%',
+          toggleActions: 'play none none reverse',
+          markers: false,
+          scrub: true
+        },
+        opacity: 0,
+        y: 100,
+        scale: 0.8,
+        stagger: 0.2
+      });
+    })
   }
 
 }

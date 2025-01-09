@@ -15,7 +15,7 @@
 } @else {
 
 
-  <div class="app-container" (mousemove)="onMouseMove($event)" 
+  <div class="app-container" (mousemove)="onMouseMove($event)"
 [ngClass]="{ 'dark-bg' : sharedService.theme() === 'dark' , 'light-bg': sharedService.theme() === 'light'}">
 
   <app-nav-bar />
@@ -24,10 +24,20 @@
   
   <app-about id="about"/>
   
+  <app-skills id="skills"/>
   
   <div class="toggle">
+    <button (click)="toggleTheme()" class="p-2 bg-secondary rounded">
+      secondary
+    </button>
+    <button (click)="toggleTheme()" class="p-2 bg-tertiary rounded">
+      tertiary
+    </button>
     <button (click)="toggleTheme()" class="p-2 bg-four rounded">
-      Toggle Theme
+      four
+    </button>
+    <button (click)="toggleTheme()" class="p-2 bg-five rounded">
+      five
     </button>
 
     <!-- <div class="pri">

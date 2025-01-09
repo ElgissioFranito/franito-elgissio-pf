@@ -12,7 +12,7 @@
         img {
             @apply w-full h-full object-cover drop-shadow-[0_5px_15px_rgba(0,0,0,0.15)];
 
-            object-position: 23% 23%;
+            // object-position: 23% 23%;
             // filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
             transition: var(--transition);
             

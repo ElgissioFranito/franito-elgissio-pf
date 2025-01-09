@@ -5,14 +5,14 @@
     transition: var(--transition);
 
     &:hover {
-        width: 460px;
+        width: 510px;
         
         @media screen and (max-width: 767px) {
-            width: 300px;
+            width: 330px;
         }
 
         .items {
-            @apply w-full opacity-100 mr-14;
+            @apply w-full opacity-100 mr-14 gap-2;
 
         }
 
@@ -24,7 +24,7 @@
 
 
     .items {
-        @apply w-0 opacity-0 overflow-hidden flex gap-3;
+        @apply w-0 opacity-0 overflow-hidden flex gap-1;
 
         transition: var(--transition);
 

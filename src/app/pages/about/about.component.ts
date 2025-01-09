@@ -13,4 +13,5 @@ import { DetailAboutComponent } from './detail-about/detail-about.component';
 })
 export class AboutComponent {
 
+
 }

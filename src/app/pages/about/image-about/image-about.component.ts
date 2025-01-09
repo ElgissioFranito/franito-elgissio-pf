@@ -1,5 +1,4 @@
-import { Component, ElementRef, inject, ViewChild } from '@angular/core';
-import { SharedService } from '../../../services/shared.service';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import gsap from 'gsap';
 
 @Component({
@@ -23,7 +22,8 @@ export class ImageAboutComponent {
       },
       opacity: 0,
       x: 200,
-      scale: 0.8
+      rotate: 45,
+      scale: 0.5
     });
   }
 }
