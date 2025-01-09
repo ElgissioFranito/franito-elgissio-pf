@@ -9,7 +9,7 @@
     }
 
     .description {
-        @apply uppercase opacity-60 w-full max-lg:text-lg;
+        @apply uppercase w-full max-lg:text-lg text-textColor-80 opacity-80;
     }
 
     .social-contact {

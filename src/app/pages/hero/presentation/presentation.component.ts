@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import gsap from 'gsap';
+// import ScrollTrigger from 'gsap/ScrollTrigger';
 
 @Component({
   selector: 'app-presentation',
@@ -6,6 +8,21 @@ import { Component } from '@angular/core';
   templateUrl: './presentation.component.html',
   styleUrl: './presentation.component.scss'
 })
-export class PresentationComponent {
+export class PresentationComponent implements AfterViewInit {
+  @ViewChild('presentationElement') presentationElement!: ElementRef;
+
+  ngAfterViewInit() {
+    gsap.from(this.presentationElement.nativeElement, {
+      scrollTrigger: {
+        trigger: this.presentationElement.nativeElement,
+        start: 'top 75%',
+        end: 'bottom center',
+        toggleActions: 'play none none reverse',
+        markers: true,
+      },
+      opacity: 0,
+      x: 100,
+    });
+  }
 
 }

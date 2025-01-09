@@ -1,11 +1,13 @@
-import { Component, inject } from '@angular/core';
-import { OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { AfterViewInit, Component, Inject, inject, OnInit } from '@angular/core';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HeroComponent } from './pages/hero/hero.component';
 import { SharedService } from './services/shared.service';
 import { NgClass } from '@angular/common';
 import { AboutComponent } from './pages/about/about.component';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-root',
@@ -19,40 +21,25 @@ import { AboutComponent } from './pages/about/about.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit, AfterViewInit{
   title = 'franito-elgissio-pf';
+  isLoading = true;
 
   sharedService = inject(SharedService);
-
-  ngOnInit(): void {
-    this.setDefaultTheme();
+  
+  ngAfterViewInit() {
+    // Configuration ScrollTrigger
+    ScrollTrigger.refresh();
   }
 
-  setDefaultTheme() {
-    console.log("setDefaultTheme");
+  async ngOnInit(): Promise<void> {    
+    await this.sharedService.preloadImages([
+      'hero/profil-light.png',
+      'hero/profil-dark.png',
+      'about/PORTRAIT.png'
+    ]);
 
-    const root = document.documentElement;
-
-    // Vérifier si un thème est déjà défini dans le stockage local
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      root.setAttribute('data-theme', savedTheme);
-
-      this.sharedService.theme.set(savedTheme);
-
-      return;
-    }
-
-    // Récupérer le thème préféré du système (clair ou sombre)
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    root.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
-
-    const defaultTheme = root.getAttribute('data-theme');
-
-    this.sharedService.theme.set(defaultTheme ?? 'dark');
-
-    console.log("this.sharedService.theme ", this.sharedService.theme());
-
+      this.isLoading = false;
   }
 
   toggleTheme() {

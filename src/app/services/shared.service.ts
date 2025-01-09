@@ -6,5 +6,16 @@ import { Injectable, signal } from '@angular/core';
 export class SharedService {
   theme = signal<string>('dark');
 
-  constructor() { }
+  preloadImages(urls: string[]): Promise<void[]> {
+    const promises = urls.map(
+      (url) =>
+        new Promise<void>((resolve) => {
+          const img = new Image();
+          img.src = url;
+          img.onload = () => resolve();
+        })
+    );
+    return Promise.all(promises);
+  }
+
 }

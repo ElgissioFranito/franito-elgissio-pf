@@ -11,6 +11,7 @@ module.exports = {
           "10" : "var(--text-color-10)",
           "20" : "var(--text-color-20)",
           "50" : "var(--text-color-50)",
+          "80" : "var(--text-color-80)",
         },
         primary: {
           "DEFAULT" : "var(--primary)",

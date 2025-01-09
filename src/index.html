@@ -2,12 +2,110 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>FranitoElgissioPf</title>
+  <title>Franito Elgissio</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <style>
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(45deg, #02152e, #000000);
+      z-index: 9999;
+    }
+
+    #loader h2 {
+      color: #000;
+      font-size: 3em;
+      text-align: flex;
+    }
+
+    #loader h2 span {
+      animation: animate 2s linear infinite;
+    }
+
+    #loader h2 span:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    #loader h2 span:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+
+    #loader h2 span:nth-child(3) {
+      animation-delay: 0.2s;
+    }
+
+    #loader h2 span:nth-child(4) {
+      animation-delay: 0.3s;
+    }
+
+    #loader h2 span:nth-child(5) {
+      animation-delay: 0.4s;
+    }
+
+    #loader h2 span:nth-child(6) {
+      animation-delay: 0.5s;
+    }
+
+    #loader h2 span:nth-child(7) {
+      animation-delay: 0.6s;
+    }
+
+    #loader h2 span:nth-child(8) {
+      animation-delay: 0.7s;
+    }
+
+    #loader h2 span:nth-child(9) {
+      animation-delay: 0.8s;
+    }
+
+    @keyframes animate {
+      0%,100% {
+        color: #fff;
+        filter: blur(2px);
+        opacity: 1;
+        text-shadow: 0 0 10px #00b3ff,
+                     0 0 20px #00b3ff,
+                     0 0 40px #00b3ff,
+                     0 0 80px #00b3ff,
+                     0 0 120px #00b3ff,
+                     0 0 200px #00b3ff,
+                     0 0 300px #00b3ff,
+                     0 0 400px #00b3ff;
+      }
+      25%,75% {
+        opacity: 0.5;
+        color: #000;
+        filter: blur(0px);
+        text-shadow: none;
+      }
+    }
+  </style>
+
 </head>
 <body>
-  <app-root></app-root>
+  <div id="loader">
+    <h2>
+      <span>E</span>
+      <span>l</span>
+      <span>g</span>
+      <span>i</span>
+      <span>s</span>
+      <span>s</span>
+      <span>i</span>
+      <span>o</span>
+      <span>...</span>
+    </h2>
+  </div>
+  <app-root style="display: none;"></app-root>
 </body>
 </html>

@@ -1,4 +1,19 @@
-<div class="app-container" (mousemove)="onMouseMove($event)" 
+@if (isLoading) {
+  <div id="loader">
+    <h2>
+      <span>E</span>
+      <span>l</span>
+      <span>g</span>
+      <span>i</span>
+      <span>s</span>
+      <span>s</span>
+      <span>i</span>
+      <span>o</span>
+      <span>...</span>
+    </h2>
+  </div>
+} @else {
+  <div class="app-container" (mousemove)="onMouseMove($event)" 
 [ngClass]="{ 'dark-bg' : sharedService.theme() === 'dark' , 'light-bg': sharedService.theme() === 'light'}">
 
   <app-nav-bar />
@@ -13,13 +28,14 @@
       Toggle Theme
     </button>
 
-    <div class="pri">
+    <!-- <div class="pri">
       Color four with bg-primary.
     </div>
 
     <button class="seco">
       Color five with bg-secondary (btn-toggle is with bg-four) 
-    </button>
+    </button> -->
   </div>
 
 </div>
+}
