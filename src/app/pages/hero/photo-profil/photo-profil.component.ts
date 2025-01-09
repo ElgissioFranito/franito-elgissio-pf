@@ -17,9 +17,9 @@ export class PhotoProfilComponent {
       scrollTrigger: {
         trigger: this.profilPictureElement.nativeElement,
         start: 'top 75%',
-        end: 'bottom center',
-        toggleActions: 'play none none reverse',
-        markers: true,
+        end: 'bottom 40%',
+        toggleActions: 'play reverse restart reverse',
+        markers: false,
       },
       opacity: 0,
       x: -100,

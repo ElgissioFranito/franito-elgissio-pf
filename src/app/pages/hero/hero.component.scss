@@ -1,6 +1,6 @@
 .hero-container {
     @apply flex items-center justify-around w-full h-screen
-    max-lg:flex-col max-lg:justify-center max-lg:gap-10 max-lg:items-center px-10 relative;
+    max-lg:flex-col max-lg:justify-center max-lg:gap-10 max-lg:items-center relative;
 
     .arrow-down {   
         @apply absolute bottom-4 bg-transparent rounded-full opacity-50
