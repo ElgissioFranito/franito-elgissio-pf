@@ -7,11 +7,9 @@ bootstrapApplication(AppComponent, appConfig)
   const loader = document.querySelector('.loader');
   const appRoot = document.querySelector('app-root') as HTMLElement;
   if (loader && appRoot) {
-    setTimeout(() => {
       console.log("remove loader && display appRoot");
       loader.remove(); // Supprime le loader
       appRoot.style.display = 'block'; // Affiche l'application
-    }, 1500);
   }
 })
   .catch((err) => console.error(err));

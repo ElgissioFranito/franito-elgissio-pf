@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Inject, inject, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, Inject, inject, NgZone, OnInit, signal } from '@angular/core';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HeroComponent } from './pages/hero/hero.component';
 import { SharedService } from './services/shared.service';
@@ -7,6 +7,7 @@ import { AboutComponent } from './pages/about/about.component';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { SkillsComponent } from './pages/skills/skills.component';
+import { timer } from 'rxjs';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,9 +26,10 @@ gsap.registerPlugin(ScrollTrigger);
 })
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'franito-elgissio-pf';
-  isLoading = true;
+  isLoading = signal(true);
 
   sharedService = inject(SharedService);
+  zone = inject(NgZone);
 
   ngAfterViewInit() {
     // Configuration ScrollTrigger
@@ -40,8 +42,13 @@ export class AppComponent implements OnInit, AfterViewInit {
       'hero/profil-dark.png',
       'about/PORTRAIT.png'
     ]);
+    
+    setTimeout(() => {
+      this.zone.runOutsideAngular(() => {
+        this.isLoading.set(false);
+      });
+    }, 1500);
 
-    this.isLoading = false;
   }
 
   toggleTheme() {
