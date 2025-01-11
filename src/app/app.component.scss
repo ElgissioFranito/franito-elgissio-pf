@@ -46,72 +46,73 @@
     transition: var(--transition);
   }
 
-  .loader2 {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+}
+
+
+.loader2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, #02152e, #000000);
+  z-index: 9999;
+
+  .loader-text {
+    color: #000;
+    font-size: 3em;
+    font-weight: bold;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(45deg, #02152e, #000000);
-    z-index: 9999;
+    gap: 13px;
 
-    .loader-text {
-      color: #000;
-      font-size: 3em;
-      font-weight: bold;
-      display: flex;
-
-      .letter {
-        margin: 0 50px;
-        animation: animate 2s linear infinite;
-      }
+    .letter {
+      // margin: 0 50px;
+      animation: animate 2s linear infinite;
+    }
 
 
-      .letter:nth-child(1) {
-        animation-delay: 0s;
-      }
+    .letter:nth-child(1) {
+      animation-delay: 0s;
+    }
 
-      .letter:nth-child(2) {
-        animation-delay: 0.1s;
-      }
+    .letter:nth-child(2) {
+      animation-delay: 0.1s;
+    }
 
-      .letter:nth-child(3) {
-        animation-delay: 0.2s;
-      }
+    .letter:nth-child(3) {
+      animation-delay: 0.2s;
+    }
 
-      .letter:nth-child(4) {
-        animation-delay: 0.3s;
-      }
+    .letter:nth-child(4) {
+      animation-delay: 0.3s;
+    }
 
-      .letter:nth-child(5) {
-        animation-delay: 0.4s;
-      }
+    .letter:nth-child(5) {
+      animation-delay: 0.4s;
+    }
 
-      .letter:nth-child(6) {
-        animation-delay: 0.5s;
-      }
+    .letter:nth-child(6) {
+      animation-delay: 0.5s;
+    }
 
-      .letter:nth-child(7) {
-        animation-delay: 0.6s;
-      }
+    .letter:nth-child(7) {
+      animation-delay: 0.6s;
+    }
 
-      .letter:nth-child(8) {
-        animation-delay: 0.7s;
-      }
+    .letter:nth-child(8) {
+      animation-delay: 0.7s;
+    }
 
-      .letter:nth-child(9) {
-        animation-delay: 0.8s;
-      }
-
+    .letter:nth-child(9) {
+      animation-delay: 0.8s;
     }
 
   }
 
 }
-
 
 @keyframes animate {
 
