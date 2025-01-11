@@ -1,5 +1,5 @@
 .image-about-container {
-    @apply flex items-center justify-center;
+    @apply flex items-center justify-between flex-col gap-3;
 
     .image-container {
         @apply flex items-center justify-center;
@@ -18,4 +18,20 @@
             
         }
     }
+    
+    .resume {
+        @apply flex items-center justify-center w-full gap-3 text-five rounded-full p-3 cursor-pointer;
+        transition: var(--transition);
+
+        min-width: 300px;
+
+        &:hover {
+            @apply bg-tertiary-20;
+        }
+
+        svg {
+            @apply w-5 h-5;
+        }
+    }
+
 }

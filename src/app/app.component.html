@@ -1,33 +1,33 @@
 @if (isLoading()) {
-  <div class="loader2">
-    <div class="loader-text">
-      <span class="letter">E</span>
-      <span class="letter">l</span>
-      <span class="letter">g</span>
-      <span class="letter">i</span>
-      <span class="letter">s</span>
-      <span class="letter">s</span>
-      <span class="letter">i</span>
-      <span class="letter">o</span>
-      <span class="letter">...</span>
-    </div>
+<div class="loader2">
+  <div class="loader-text">
+    <span class="letter">E</span>
+    <span class="letter">l</span>
+    <span class="letter">g</span>
+    <span class="letter">i</span>
+    <span class="letter">s</span>
+    <span class="letter">s</span>
+    <span class="letter">i</span>
+    <span class="letter">o</span>
+    <span class="letter">...</span>
   </div>
+</div>
 } @else {
 
 
-  <div class="app-container" (mousemove)="onMouseMove($event)"
-[ngClass]="{ 'dark-bg' : sharedService.theme() === 'dark' , 'light-bg': sharedService.theme() === 'light'}">
+<div class="app-container" (mousemove)="onMouseMove($event)"
+  [ngClass]="{ 'dark-bg' : sharedService.theme() === 'dark' , 'light-bg': sharedService.theme() === 'light'}">
 
   <app-nav-bar />
 
-  <app-hero id="hero"/>
-  
-  <app-about id="about"/>
-  
-  <app-skills id="skills"/>
-  
+  <app-hero id="hero" />
+
+  <app-about id="about" />
+
+  <app-skills id="skills" />
+
   <div class="toggle">
-    <button (click)="toggleTheme()" class="p-2 bg-secondary rounded">
+    <!-- <button (click)="toggleTheme()" class="p-2 bg-secondary rounded">
       secondary
     </button>
     <button (click)="toggleTheme()" class="p-2 bg-tertiary rounded">
@@ -38,15 +38,11 @@
     </button>
     <button (click)="toggleTheme()" class="p-2 bg-five rounded">
       five
-    </button>
-
-    <!-- <div class="pri">
-      Color four with bg-primary.
-    </div>
-
-    <button class="seco">
-      Color five with bg-secondary (btn-toggle is with bg-four) 
     </button> -->
+    <label class="switch">
+      <input type="checkbox" [checked]="themeCheck()">
+      <span class="slider" (click)="toggleTheme()"></span>
+    </label>
   </div>
 
 </div>

@@ -1,4 +1,39 @@
 .skills-container {
-    @apply w-full min-h-screen bg-transparent flex justify-center items-center;
+    @apply w-full min-h-screen bg-transparent flex justify-center items-center mb-20;
+
+    .skill-categories {
+        @apply grid grid-cols-3 max-md:grid-cols-1 max-2xl:grid-cols-2 gap-4;
+
+        .category {
+            @apply flex flex-col text-four bg-tertiary-20 mb-6 p-3 rounded-lg;
+
+            .categ-title {
+                @apply text-2xl md:text-3xl font-semibold uppercase pb-2 border border-b-tertiary border-t-0 border-l-0 border-r-0;
+
+            }
+
+            .skill-items {
+                @apply flex gap-2 flex-wrap;
+
+                .skill-item {
+                    @apply flex flex-col m-2;
+
+                    .tech-logo {
+                        @apply w-16 h-16 mb-2;
+
+                        svg {
+                            path {
+                                fill: var(--text-color);
+                            }
+                        }
+                    }
+
+                    .tech-name {
+                        @apply text-textColor-50;
+                    }
+                }
+            }
+        }
+    }
 
 }
