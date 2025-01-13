@@ -7,6 +7,8 @@ import { AboutComponent } from './pages/about/about.component';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { SkillsComponent } from './pages/skills/skills.component';
+import { ProjectsComponent } from './pages/projects/projects.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,7 +20,9 @@ gsap.registerPlugin(ScrollTrigger);
     NgClass,
     HeroComponent,
     AboutComponent,
-    SkillsComponent
+    SkillsComponent,
+    ProjectsComponent,
+    ContactComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

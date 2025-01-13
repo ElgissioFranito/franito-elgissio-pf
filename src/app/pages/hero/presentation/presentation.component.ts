@@ -15,7 +15,7 @@ export class PresentationComponent implements AfterViewInit {
     gsap.from(this.presentationElement.nativeElement, {
       scrollTrigger: {
         trigger: this.presentationElement.nativeElement,
-        start: 'top 75%',
+        start: 'top 80%',
         end: 'bottom 60%',
         toggleActions: 'play reverse restart reverse',
         markers: false,

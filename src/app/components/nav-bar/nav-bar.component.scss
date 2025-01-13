@@ -1,14 +1,13 @@
 .nav-container {
-    @apply fixed top-4 right-1/2 transform translate-x-1/2 bg-secondary-50 py-2 px-3 rounded-full shadow-md flex items-center space-x-8 z-50 w-16 
-    max-sm:transform-none max-sm:translate-x-0 max-sm:right-5;
+    @apply fixed top-4 right-1/2 transform translate-x-1/2 bg-secondary-50 py-2 px-3 rounded-full shadow-md flex items-center space-x-8 z-50 w-16 max-sm:transform-none max-sm:translate-x-0 max-sm:right-5;
 
     transition: var(--transition);
 
     &:hover {
-        width: 510px;
-        
+        width: 520px;
+
         @media screen and (max-width: 767px) {
-            width: 330px;
+            width: 340px;
         }
 
         .items {
@@ -29,13 +28,18 @@
         transition: var(--transition);
 
         .nav-item {
-            @apply text-sm hover:text-five cursor-pointer uppercase hover:scale-x-105 hover:bg-gray-400 hover:bg-opacity-10 rounded-full p-2 px-4
-            max-md:px-2;
+            @apply text-sm hover:text-five cursor-pointer uppercase hover:scale-x-105 hover:bg-gray-400 hover:bg-opacity-10 rounded-full p-2 px-4 max-md:px-2;
 
             transition: var(--transition);
 
+            &:hover {
+                svg {
+                    @apply text-five;
+                }
+            }
+
             svg {
-                @apply w-7 h-7 text-five;
+                @apply w-7 h-7 text-textColor;
             }
         }
     }

@@ -1,5 +1,6 @@
 .presentation-container {
-    @apply flex flex-col items-center justify-center gap-5 text-center h-screen max-lg:h-fit p-10;
+    @apply flex flex-col items-center justify-center gap-5 text-center h-screen 
+    max-lg:h-fit p-10 max-sm:p-3 max-sm:pt-0;
 
     // width: 45vw;
 
