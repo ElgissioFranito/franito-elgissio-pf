@@ -8,7 +8,6 @@ import gsap from 'gsap';
   styleUrl: './detail-about.component.scss'
 })
 export class DetailAboutComponent {
-  @ViewChild('detailAboutElement') detailAboutElement!: ElementRef;
 
   zone = inject(NgZone);
 
