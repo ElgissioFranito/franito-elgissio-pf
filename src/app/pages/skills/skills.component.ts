@@ -21,7 +21,7 @@ export class SkillsComponent {
               trigger: element,
               start: 'top 90%',
               end: 'bottom 75%',
-              toggleActions: 'play reverse restart reverse',
+              toggleActions: 'play none none reverse',
               markers: false,
               scrub: true
             },
@@ -35,7 +35,7 @@ export class SkillsComponent {
               trigger: element,
               start: 'top 85%',
               end: 'bottom 75%',
-              toggleActions: 'play reverse restart reverse',
+              toggleActions: 'play none none reverse',
               markers: false,
               scrub: true
             },
