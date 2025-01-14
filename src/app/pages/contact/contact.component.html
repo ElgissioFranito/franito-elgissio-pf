@@ -8,40 +8,44 @@
 
         <div class="contact-content">
             <div class="form-section" (mousemove)="onMouseMove($event)">
-                <h2 class="form-title">Send a Message</h2>
-                <form action="#" method="POST" class="space-y-4">
-                    <div class="grid grid-cols-2 max-sm:grid-cols-1 gap-4">
+                <div class="form-content"
+                    [ngClass]="{ 'dark-bg' : sharedService.theme() === 'dark' , 'light-bg': sharedService.theme() === 'light'}">
+
+                    <h2 class="form-title">Send a Message</h2>
+                    <form action="#" method="POST" class="space-y-4">
+                        <div class="grid grid-cols-2 max-sm:grid-cols-1 gap-4">
+                            <div class="form-item">
+                                <label>First Name</label>
+                                <input type="text" placeholder="Enter your name here"
+                                    class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-gray-600">
+                            </div>
+                            <div class="form-item">
+                                <label class="block font-medium mb-1">Last Name</label>
+                                <input type="text" placeholder="Enter your last name here"
+                                    class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-gray-600">
+                            </div>
+                        </div>
                         <div class="form-item">
-                            <label>First Name</label>
-                            <input type="text" placeholder="Enter your name here"
+                            <label class="block font-medium mb-1">Email</label>
+                            <input type="email" placeholder="Ex: johndoe@email.com"
                                 class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-gray-600">
                         </div>
                         <div class="form-item">
-                            <label class="block font-medium mb-1">Last Name</label>
-                            <input type="text" placeholder="Enter your last name here"
+                            <label class="block font-medium mb-1">Mobile</label>
+                            <input type="text" placeholder="Enter your number here"
                                 class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-gray-600">
                         </div>
-                    </div>
-                    <div class="form-item">
-                        <label class="block font-medium mb-1">Email</label>
-                        <input type="email" placeholder="Ex: johndoe@email.com"
-                            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-gray-600">
-                    </div>
-                    <div class="form-item">
-                        <label class="block font-medium mb-1">Mobile</label>
-                        <input type="text" placeholder="Enter your number here"
-                            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-gray-600">
-                    </div>
-                    <div class="form-item">
-                        <label class="block font-medium mb-1">Message</label>
-                        <textarea placeholder="Write your message here..."
-                            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none h-28"></textarea>
-                    </div>
-                    <button type="submit"
-                        class="bg-five-50 text-textColor px-6 py-2 rounded-lg hover:bg-five transition-all">
-                        Send
-                    </button>
-                </form>
+                        <div class="form-item">
+                            <label class="block font-medium mb-1">Message</label>
+                            <textarea placeholder="Write your message here..."
+                                class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none h-28 text-gray-600"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="bg-five-50 text-textColor px-6 py-2 rounded-lg hover:bg-five transition-all">
+                            Send
+                        </button>
+                    </form>
+                </div>
             </div>
 
             <div class="info-section">

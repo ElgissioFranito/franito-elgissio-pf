@@ -2,6 +2,14 @@
     @apply w-full min-h-screen flex justify-center items-center max-lg:p-3;
 
     background: linear-gradient(transparent, var(--primary-10), var(--primary-20), var(--primary-50) 25%, var(--primary) 70%);
+    
+    .title {
+        @apply text-3xl md:text-4xl font-bold text-four mb-6 p-3 border border-four rounded-full bg-primary-50 uppercase text-center;
+    }
+
+    .subtitle {
+        @apply text-textColor mb-6 uppercase;
+    }
 
     .projects-cards {
         @apply grid grid-cols-3 max-md:grid-cols-1 max-2xl:grid-cols-2 gap-4;
@@ -31,12 +39,10 @@
                 background: url(./../../../../public/photo-profil.png);
                 background-size: cover;
                 background-repeat: no-repeat;
-
             }
 
             &:hover {
                 .card-content {
-                    background: var(--primary);
                     transform: translateX(0);
 
                     .content-text {
@@ -48,6 +54,7 @@
 
 
             .card-content {
+                background: var(--primary);
                 height: 100%;
                 width: 100%;
                 transform: translateX(100%);
