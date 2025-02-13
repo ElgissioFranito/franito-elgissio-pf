@@ -15,7 +15,7 @@
         @apply grid grid-cols-3 max-md:grid-cols-1 max-2xl:grid-cols-2 gap-4;
 
         .project-card {
-            @apply flex flex-col text-four border-4 border-secondary mb-6 rounded-3xl h-96 relative overflow-hidden;
+            @apply flex flex-col text-four border-4 border-secondary mb-6 rounded-3xl min-h-96 relative overflow-hidden;
             transition: var(--transition);
 
 

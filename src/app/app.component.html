@@ -26,7 +26,7 @@
 
   <app-skills id="skills" />
 
-  <app-projects id="projects" />
+  <app-projects id="projects" [(idProject)]="idProject" />
 
   <app-contact id="contact" />
 
@@ -49,5 +49,14 @@
     </label>
   </div>
 
+
 </div>
+}
+
+
+@if (idProject() > 0) {
+  <div class="fixed top-0 left-0 w-full h-screen bg-primary z-40 overflow-x-hidden overflow-y-auto" 
+  @zoomIn>
+    <app-detail-project [(idProject)]="idProject" />
+  </div>
 }

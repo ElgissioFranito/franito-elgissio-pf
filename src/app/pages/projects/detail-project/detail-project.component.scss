@@ -1,0 +1,9 @@
+.detail-projet-container {
+    @apply flex items-center justify-center w-full h-screen max-lg:h-fit;
+
+    .close {
+        @apply rounded-full w-10 h-10 bg-secondary-50 absolute top-5 right-5 flex justify-center items-center
+        hover:scale-105 active:scale-95
+        transition-all duration-300 ease-in-out;
+    }
+}

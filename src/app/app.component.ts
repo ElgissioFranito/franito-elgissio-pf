@@ -1,35 +1,43 @@
-import { AfterViewInit, Component, computed, inject, NgZone, OnInit, signal } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, computed, inject, NgZone, OnInit, signal } from '@angular/core';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HeroComponent } from './pages/hero/hero.component';
 import { SharedService } from './services/shared.service';
-import { NgClass } from '@angular/common';
+import { AsyncPipe, NgClass } from '@angular/common';
 import { AboutComponent } from './pages/about/about.component';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { SkillsComponent } from './pages/skills/skills.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { DetailProjectComponent } from "./pages/projects/detail-project/detail-project.component";
+import { zoomAnimation } from './animation/animations';
 
 gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-root',
   imports: [
-    // RouterOutlet,
     NavBarComponent,
     NgClass,
     HeroComponent,
     AboutComponent,
     SkillsComponent,
     ProjectsComponent,
-    ContactComponent
+    ContactComponent,
+    DetailProjectComponent
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  animations: [zoomAnimation], // Ajout de l'animation
 })
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'franito-elgissio-pf';
   isLoading = signal(true);
+  idProject = signal(0);
+
+  sharedService = inject(SharedService);
+  zone = inject(NgZone);
+
   themeCheck = computed(() => {
     if (this.sharedService.theme() === 'dark') {
       return true;
@@ -38,8 +46,6 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
   });
 
-  sharedService = inject(SharedService);
-  zone = inject(NgZone);
 
   ngAfterViewInit() {
     // Configuration ScrollTrigger
@@ -52,7 +58,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       'hero/profil-dark.png',
       'about/PORTRAIT.png'
     ]);
-    
+
     setTimeout(() => {
       this.zone.runOutsideAngular(() => {
         this.isLoading.set(false);

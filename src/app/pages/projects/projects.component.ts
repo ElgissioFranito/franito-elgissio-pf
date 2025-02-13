@@ -1,5 +1,7 @@
-import { Component, inject, NgZone } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, input, model, NgZone } from '@angular/core';
+import { Router } from '@angular/router';
 import gsap from 'gsap';
+import { SharedService } from '../../services/shared.service';
 
 @Component({
   selector: 'app-projects',
@@ -9,6 +11,11 @@ import gsap from 'gsap';
 })
 export class ProjectsComponent {
   zone = inject(NgZone);
+  router = inject(Router);
+  sharedService = inject(SharedService);
+  cdr = inject(ChangeDetectorRef);
+
+  idProject = model<number>();
 
   ngAfterViewInit() {
     this.zone.runOutsideAngular(() => {
@@ -47,4 +54,10 @@ export class ProjectsComponent {
     target.style.setProperty('--mouse-x', `${mouseX}px`);
     target.style.setProperty('--mouse-y', `${mouseY}px`);
   }
+
+  onViewDetailProject(id: number) {
+    this.idProject.set(id);
+    console.log(this.idProject());
+  }
+
 }
