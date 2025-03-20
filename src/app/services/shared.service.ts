@@ -9,49 +9,50 @@ export class SharedService {
   projects = [
     {
       id: 1,
-      title: 'Project 1',
-      description: 'Description 1',
-      detail: 'Detail 1',
-      background: 'https://via.placeholder.com/150',
+      title: 'GED',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt labore.',
+      detail: `A company is transitioning to a fully digital Document Management System (DMS) to optimize workflow. 
+              The primary goal is to centralize and secure documents, enhancing collaboration and control over sensitive 
+              information. The system will integrate advanced search and access control features, while ensuring security 
+              and regulatory compliance. The intuitive interface will facilitate employee adoption. The project aims to 
+              reduce paper-related costs and increase productivity`,
+      background: 'https://placeholder.pics/svg/300x240/FF3213/FF591D-FFFFFF',
       screenshots: [
-        'https://via.placeholder.com/150',
-        'https://via.placeholder.com/150',
-        'https://via.placeholder.com/150'
+        'https://placeholder.pics/svg/300x240/41F2FF-FF4F2F/FF591D-FFFFFF',
+        'https://placeholder.pics/svg/300x240/5F25FF-88FF62/FF591D-FFFFFF',
+        'https://placeholder.pics/svg/300x240/FF3213-FF31CA/FF591D-FFFFFF'
       ],
-      technologies: ['Tech 1', 'Tech 2', 'Tech 3'],
-      github: 'https://github.com',
+      technologies: ['Angular', 'Laravel', 'MySQL'],
       demo: 'https://example.com',
       isPrivate: false
     },
     {
       id: 2,
-      title: 'Project 2',
-      description: 'Description 2',
+      title: 'Les professionnels de Madagascar',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt labore.',
       detail: 'Detail 2',
-      background: 'https://via.placeholder.com/150',
+      background: 'https://placeholder.pics/svg/300x240/FF50B9/FF591D-FFFFFF',
       screenshots: [
-        'https://via.placeholder.com/150',
-        'https://via.placeholder.com/150',
-        'https://via.placeholder.com/150'
+        'https://placeholder.pics/svg/300x240/41F2FF-FF4F2F/FF591D-FFFFFF',
+        'https://placeholder.pics/svg/300x240/5F25FF-88FF62/FF591D-FFFFFF',
+        'https://placeholder.pics/svg/300x240/FF3213-FF31CA/FF591D-FFFFFF'
       ],
-      technologies: ['Tech 1', 'Tech 2', 'Tech 3'],
-      github: 'https://github.com',
+      technologies: ['Angular SSR', 'Laravel', 'MySQL'],
       demo: 'https://example.com',
       isPrivate: false
     },
     {
       id: 3,
-      title: 'Project 3',
-      description: 'Description 3',
+      title: 'Gestion de Stock',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt labore.',
       detail: 'Detail 3',
-      background: 'https://via.placeholder.com/150',
+      background: 'https://placeholder.pics/svg/300x240/15C108/FF591D-FFFFFF',
       screenshots: [
-        'https://via.placeholder.com/150',
-        'https://via.placeholder.com/150',
-        'https://via.placeholder.com/150'
+        'https://placeholder.pics/svg/300x240/41F2FF-FF4F2F/FF591D-FFFFFF',
+        'https://placeholder.pics/svg/300x240/5F25FF-88FF62/FF591D-FFFFFF',
+        'https://placeholder.pics/svg/300x240/FF3213-FF31CA/FF591D-FFFFFF'
       ],
-      technologies: ['Tech 1', 'Tech 2', 'Tech 3'],
-      github: 'https://github.com',
+      technologies: ['Angular', 'Laravel', 'MySQL'],
       demo: 'https://example.com',
       isPrivate: false
     }
