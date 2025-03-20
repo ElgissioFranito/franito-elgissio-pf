@@ -33,7 +33,7 @@ gsap.registerPlugin(ScrollTrigger);
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'franito-elgissio-pf';
   isLoading = signal(true);
-  idProject = signal(1);
+  idProject = signal(0);
 
   sharedService = inject(SharedService);
   zone = inject(NgZone);
