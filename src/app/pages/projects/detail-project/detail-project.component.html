@@ -6,19 +6,19 @@
         </svg>
     </button>
 
-    <div class="project-content">
+    <div class="project-content max-lg:px-4">
 
         <!-- Gallery -->
         @if (project()?.screenshots.length > 0) {
-        <div class="flex flex-col items-center m-5 max-sm:m-2 min-w-96">
+        <div class="screenshot-section">
             @if (screenshot()) {
-            <img [src]="screenshot()" alt="Main Product Image" class="w-full h-60 object-cover mb-4" />
+            <img [src]="screenshot()" alt="Main Product Image" class="w-full h-60 object-cover mb-4 rounded-xl" />
             }
 
             <div class="flex gap-2">
                 @for (scr of project().screenshots; track $index) {
                 <img [src]="project().screenshots[$index]" alt="Thumbnail 1"
-                    class="w-8 h-8 object-cover cursor-pointer" (click)="showScreen($index)" />
+                    class="w-8 h-8 object-cover cursor-pointer rounded" (click)="showScreen($index)" />
                 }
             </div>
         </div>
@@ -27,18 +27,25 @@
 
         <!-- detail -->
         <div class="space-y-4 detail">
-            <h1 class="text-3xl font-bold text-center"> {{ project()?.title }} </h1>
-            <p class="text-gray-500 max-lg:text-center">
+            <h1 class="text-4xl font-bold text-center max-lg:text-3xl"> {{ project()?.title }} </h1>
+            <p class="text-gray-500 max-lg:text-center text-xl max-lg:text-md max-sm:text-sm">
                 {{ project()?.detail }}
             </p>
             <div class="text-gray-500 max-lg:text-center flex max-lg:justify-center">
                 @for (tech of project().technologies; track $index) {
-                    <div class="py-1 px-4 rounded-full bg-four-50 mx-1 text-primary"> {{tech}} </div>
+                <div class="py-1 px-4 rounded-full bg-four-50 mx-1 text-primary"> {{tech}} </div>
                 }
             </div>
-            <p class="text-tertiary max-lg:text-center hover:underline cursor-pointer">
-                {{ project()?.demo }}
-            </p>
+            <div class="flex justify-center py-2">
+                <a class="text-tertiary max-lg:text-center hover:underline cursor-pointer"
+                    [href]="project()?.demo" target="_blank">
+                    @if (project()?.private == true) {
+                        <span> Go to the demo </span> 
+                    } @else {
+                        <span> Go to the website </span> 
+                    }
+                </a>
+            </div>
 
         </div>
 

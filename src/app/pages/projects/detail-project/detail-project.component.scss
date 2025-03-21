@@ -10,6 +10,13 @@
     .project-content {
         @apply flex items-center justify-around container gap-3 max-lg:gap-2 max-lg:flex-col;
 
+        .screenshot-section {
+            @apply flex flex-col items-center m-5 max-sm:m-2;
+
+            min-width: min(384px, 96%);
+
+        }
+      
         // .detail {
         // }
     }
