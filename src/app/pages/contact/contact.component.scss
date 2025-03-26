@@ -54,10 +54,17 @@
         }
 
         .info-section {
-            @apply bg-secondary p-8 h-fit;
+            @apply bg-secondary p-8 h-fit max-md:p-4  max-md:pb-8 flex items-center justify-center flex-col;
 
             .info-title {
                 @apply text-xl font-semibold mb-4;
+            }
+
+            .map-container {
+                @apply h-4/6 rounded-2xl overflow-hidden min-h-96 bg-indigo-400;
+
+                width: calc(100% - 2rem);
+                transform: none !important;
             }
         }
 
