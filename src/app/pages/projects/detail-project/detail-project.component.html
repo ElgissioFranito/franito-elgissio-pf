@@ -1,55 +1,70 @@
-<div class="detail-projet-container">
-    <button class="close" (click)="onClose()">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-            class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-    </button>
+<div class="modal-card" (click)="$event.stopPropagation()">
 
-    <div class="project-content max-lg:px-4">
+    <!-- Header -->
+    <div class="modal-header">
+        <h2 class="text-2xl font-bold text-primary max-sm:text-xl">{{ project()?.title }}</h2>
+        <button class="close-btn" (click)="onClose()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
 
-        <!-- Gallery -->
-        @if (project()?.screenshots.length > 0) {
-        <div class="screenshot-section">
-            @if (screenshot()) {
-            <img [src]="screenshot()" alt="Main Product Image" class="w-full h-60 object-cover mb-4 rounded-xl" />
-            }
+    <!-- Body -->
+    <div class="modal-body">
 
-            <div class="flex gap-2">
+        <!-- Gallery Section -->
+        <div class="gallery-section">
+            @if (project()?.screenshots?.length > 0) {
+            <div class="main-image-container">
+                @if (screenshot()) {
+                <img [src]="screenshot()" alt="Main Product Image" class="main-image" />
+                }
+            </div>
+
+            <div class="thumbnails">
                 @for (scr of project().screenshots; track $index) {
-                <img [src]="project().screenshots[$index]" alt="Thumbnail 1"
-                    class="w-8 h-8 object-cover cursor-pointer rounded" (click)="showScreen($index)" />
+                <img [src]="project().screenshots[$index]" alt="Thumbnail" class="thumbnail"
+                    [class.active]="screenshot() === project().screenshots[$index]" (click)="showScreen($index)" />
                 }
             </div>
+            }
         </div>
-        }
 
-
-        <!-- detail -->
-        <div class="space-y-4 detail">
-            <h1 class="text-4xl font-bold text-center max-lg:text-3xl"> {{ project()?.title }} </h1>
-            <p class="text-gray-500 max-lg:text-center text-xl max-lg:text-md max-sm:text-sm">
-                {{ project()?.detail }}
-            </p>
-            <div class="text-gray-500 max-lg:text-center flex max-lg:justify-center">
-                @for (tech of project().technologies; track $index) {
-                <div class="py-1 px-4 rounded-full bg-four-50 mx-1 text-primary"> {{tech}} </div>
-                }
+        <!-- Info Section -->
+        <div class="info-section">
+            <div class="description">
+                <h3 class="text-lg font-semibold text-secondary mb-2">About this project</h3>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    {{ project()?.detail }}
+                </p>
             </div>
-            <div class="flex justify-center py-2">
-                <a class="text-tertiary max-lg:text-center hover:underline cursor-pointer"
-                    [href]="project()?.demo" target="_blank">
-                    @if (project()?.private == true) {
-                        <span> Go to the demo </span> 
-                    } @else {
-                        <span> Go to the website </span> 
+
+            <div class="technologies">
+                <h3 class="text-lg font-semibold text-secondary mb-2">Technologies</h3>
+                <div class="tech-chips">
+                    @for (tech of project().technologies; track $index) {
+                    <span class="chip"> {{tech}} </span>
                     }
+                </div>
+            </div>
+
+            <div class="actions">
+                <a class="btn-primary" [href]="project()?.demo" target="_blank">
+                    @if (project()?.private == true) {
+                    <span>View Demo</span>
+                    } @else {
+                    <span>Visit Website</span>
+                    }
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-4 h-4 ml-2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                    </svg>
                 </a>
             </div>
-
         </div>
 
     </div>
-
-
 </div>

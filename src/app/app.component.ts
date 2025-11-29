@@ -29,6 +29,7 @@ gsap.registerPlugin(ScrollTrigger);
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   animations: [zoomAnimation], // Ajout de l'animation
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'franito-elgissio-pf';
@@ -50,6 +51,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     // Configuration ScrollTrigger
     ScrollTrigger.refresh();
+
   }
 
   async ngOnInit(): Promise<void> {
@@ -89,6 +91,12 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     target?.style.setProperty('--mouse-x', `${x}px`);
     target?.style.setProperty('--mouse-y', `${y}px`);
+  }
+
+  onCloseBackdrop(event: MouseEvent) {
+    if (event.target === event.currentTarget) {
+      this.idProject.set(0);
+    }
   }
 
 }

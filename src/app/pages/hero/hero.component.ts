@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, ViewChild } from '@angular/core';
 import { PresentationComponent } from './presentation/presentation.component';
 import { PhotoProfilComponent } from './photo-profil/photo-profil.component';
 import gsap from 'gsap';
@@ -11,7 +11,8 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
     PhotoProfilComponent
   ],
   templateUrl: './hero.component.html',
-  styleUrl: './hero.component.scss'
+  styleUrl: './hero.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeroComponent {
 

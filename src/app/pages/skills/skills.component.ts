@@ -1,11 +1,12 @@
-import { Component, inject, NgZone } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, NgZone } from '@angular/core';
 import gsap from 'gsap';
 
 @Component({
   selector: 'app-skills',
   imports: [],
   templateUrl: './skills.component.html',
-  styleUrl: './skills.component.scss'
+  styleUrl: './skills.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SkillsComponent {
 

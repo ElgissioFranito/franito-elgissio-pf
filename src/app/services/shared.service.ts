@@ -6,6 +6,8 @@ import { Injectable, signal } from '@angular/core';
 export class SharedService {
   theme = signal<string>('dark');
 
+  notification = signal<{ message: string; type: string } | null>(null);
+
   projects = [
     {
       id: 1,
@@ -42,7 +44,7 @@ export class SharedService {
         'project/lpm-03.jpg'
       ],
       technologies: ['Angular SSR', 'Laravel', 'MySQL'],
-      demo: 'https://lpm-public.vercel.app/',
+      demo: 'https://les-professionnels-de-madagascar.mg/',
       isPrivate: false
     },
     {
@@ -67,6 +69,19 @@ export class SharedService {
     }
   ]
 
+  openMail() {
+    window.open('mailto:franitorandriamanarina@gmail.com', '_blank');
+  }
+  openLinkedin() {
+    window.open('https://www.linkedin.com/in/franito-elgissio-randriamanarina-744a87321', '_blank');
+  }
+  openGithub() {
+    window.open('https://github.com/ElgissioFranito', '_blank');
+  }
+  openWhatsapp() {
+    window.open('https://wa.me/261346286560', '_blank');
+  }
+
   preloadImages(urls: string[]): Promise<void[]> {
     const promises = urls.map(
       (url) =>
@@ -77,6 +92,14 @@ export class SharedService {
         })
     );
     return Promise.all(promises);
+  }
+
+  showNotification(message: string, type: string) {
+    // toggle this notification
+    this.notification.set({ message, type });
+    setTimeout(() => {
+      this.notification.set(null);
+    }, 3000);
   }
 
 }

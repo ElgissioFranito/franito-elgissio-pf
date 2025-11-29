@@ -12,37 +12,41 @@
                     [ngClass]="{ 'dark-bg' : sharedService.theme() === 'dark' , 'light-bg': sharedService.theme() === 'light'}">
 
                     <h2 class="form-title">Send a Message</h2>
-                    <form action="#" method="POST" class="space-y-4">
+                    <form [formGroup]="contactForm" (ngSubmit)="sendMail()" class="space-y-4">
                         <div class="grid grid-cols-2 max-sm:grid-cols-1 gap-4">
                             <div class="form-item">
                                 <label>First Name</label>
-                                <input type="text" placeholder="Enter your name here"
+                                <input type="text" formControlName="firstName" placeholder="Enter your name here"
                                     class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-gray-600">
                             </div>
                             <div class="form-item">
                                 <label class="block font-medium mb-1">Last Name</label>
-                                <input type="text" placeholder="Enter your last name here"
+                                <input type="text" formControlName="lastName" placeholder="Enter your last name here"
                                     class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-gray-600">
                             </div>
                         </div>
                         <div class="form-item">
                             <label class="block font-medium mb-1">Email</label>
-                            <input type="email" placeholder="Ex: johndoe@email.com"
+                            <input type="email" formControlName="email" placeholder="Ex: johndoe@email.com"
                                 class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-gray-600">
                         </div>
                         <div class="form-item">
                             <label class="block font-medium mb-1">Mobile</label>
-                            <input type="text" placeholder="Enter your number here"
+                            <input type="text" formControlName="mobile" placeholder="Enter your number here"
                                 class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-gray-600">
                         </div>
                         <div class="form-item">
                             <label class="block font-medium mb-1">Message</label>
-                            <textarea placeholder="Write your message here..."
+                            <textarea formControlName="message" placeholder="Write your message here..."
                                 class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none h-28 text-gray-600"></textarea>
                         </div>
-                        <button type="submit"
-                            class="bg-five-50 text-textColor px-6 py-2 rounded-lg hover:bg-five transition-all">
+                        <button type="submit" [disabled]="isSending"
+                            class="bg-five-50 text-textColor px-6 py-2 rounded-lg hover:bg-five transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                            @if (isSending) {
+                            Sending...
+                            } @else {
                             Send
+                            }
                         </button>
                     </form>
                 </div>
@@ -87,21 +91,21 @@
                     </p>
 
                     <p class="social-contact">
-                        <span class="social-item">
+                        <span class="social-item gmail" (click)="sharedService.openMail()">
                             <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                     d="M24 0C10.7452 0 0 10.7452 0 24C0 37.2548 10.7452 48 24 48C37.2548 48 48 37.2548 48 24C48 10.7452 37.2548 0 24 0ZM23.9639 26.0193L14.9987 19.5115V33.23H13.5009C12.6664 33.23 12.0031 32.5667 12.0031 31.7322V16.562C12.0031 16.4985 12.007 16.4389 12.0144 16.3831C12.0416 16.1451 12.1284 15.9122 12.2813 15.7061C12.7734 15.0428 13.7363 14.893 14.421 15.3851L23.9853 22.3391L33.6138 15.2996C34.2771 14.8074 35.2186 14.9572 35.7107 15.6419C35.9723 15.9945 36.0525 16.4256 35.9674 16.8261V31.7536C35.9674 32.5667 35.3041 33.23 34.4697 33.23H32.9719V19.4788L23.9639 26.0193Z" />
                             </svg>
                         </span>
-                        <span class="social-item">
+                        <span class="social-item linkedin" (click)="sharedService.openLinkedin()">
                             <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                     d="M0 24C0 10.7452 10.7452 0 24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24ZM16.9605 19.8778H11.5216V36.2196H16.9605V19.8778ZM17.3188 14.8227C17.2835 13.2204 16.1377 12 14.277 12C12.4164 12 11.2 13.2204 11.2 14.8227C11.2 16.3918 12.3805 17.6473 14.2064 17.6473H14.2412C16.1377 17.6473 17.3188 16.3918 17.3188 14.8227ZM36.5754 26.8497C36.5754 21.8303 33.8922 19.4941 30.3131 19.4941C27.4254 19.4941 26.1326 21.0802 25.4107 22.1929V19.8783H19.9711C20.0428 21.4117 19.9711 36.22 19.9711 36.22H25.4107V27.0934C25.4107 26.605 25.446 26.1178 25.5898 25.7681C25.9829 24.7924 26.8779 23.7822 28.3805 23.7822C30.3494 23.7822 31.1365 25.2807 31.1365 27.4767V36.2196H36.5752L36.5754 26.8497Z" />
                             </svg>
                         </span>
-                        <span class="social-item">
+                        <span class="social-item" (click)="sharedService.openGithub()">
                             <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -124,7 +128,7 @@
                             </svg>
 
                         </span>
-                        <span class="social-item">
+                        <span class="social-item whatsapp" (click)="sharedService.openWhatsapp()">
                             <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"

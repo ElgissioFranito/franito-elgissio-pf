@@ -1,11 +1,13 @@
-import { Component, ElementRef, inject, NgZone, ViewChild } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
+import { ChangeDetectionStrategy, Component, ElementRef, inject, NgZone, ViewChild } from '@angular/core';
 import gsap from 'gsap';
 
 @Component({
   selector: 'app-image-about',
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: './image-about.component.html',
-  styleUrl: './image-about.component.scss'
+  styleUrl: './image-about.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ImageAboutComponent {
   @ViewChild('photoAboutElement') photoAboutElement!: ElementRef;
@@ -28,7 +30,7 @@ export class ImageAboutComponent {
           rotate: 45,
           scale: 0.5
         });
-      },500)
+      }, 500)
     })
   }
 }

@@ -1,5 +1,6 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, ViewChild } from '@angular/core';
 import gsap from 'gsap';
+import { SharedService } from '../../../services/shared.service';
 // import ScrollTrigger from 'gsap/ScrollTrigger';
 
 @Component({
@@ -10,6 +11,8 @@ import gsap from 'gsap';
 })
 export class PresentationComponent implements AfterViewInit {
   @ViewChild('presentationElement') presentationElement!: ElementRef;
+
+  sharedService = inject(SharedService);
 
   ngAfterViewInit() {
     gsap.from(this.presentationElement.nativeElement, {

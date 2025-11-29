@@ -1,9 +1,11 @@
 <div class="photo-profil-container" #profilPictureElement>
     <div class="image-container">
         @if (sharedService.theme() === 'dark') {
-            <img src="hero/profil-dark.png" alt="Photo de Franito Elgissio RANDRIAMANARINA">
+        <img ngSrc="hero/profil-dark.png" alt="Photo de Franito Elgissio RANDRIAMANARINA" width="500" height="500"
+            priority>
         } @else {
-            <img src="hero/profil-light.png" alt="Photo de Franito Elgissio RANDRIAMANARINA">
+        <img ngSrc="hero/profil-light.png" alt="Photo de Franito Elgissio RANDRIAMANARINA" width="500" height="500"
+            priority>
         }
     </div>
 </div>

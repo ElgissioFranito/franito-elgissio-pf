@@ -7,7 +7,8 @@ import { SharedService } from '../../services/shared.service';
   selector: 'app-projects',
   imports: [],
   templateUrl: './projects.component.html',
-  styleUrl: './projects.component.scss'
+  styleUrl: './projects.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectsComponent {
   zone = inject(NgZone);
@@ -41,13 +42,7 @@ export class ProjectsComponent {
 
   onMouseMove(event: MouseEvent) {
     const { currentTarget: target } = event as any;
-    // const rect = target?.getBoundingClientRect(),
-    //   x = event.clientX - rect.left,
-    //   y = event.clientY - rect.top;
-
-    // target?.style.setProperty('--mouse-x', `${x}px`);
-    // target?.style.setProperty('--mouse-y', `${y}px`);
-
+    
     let mouseX = event.pageX - target.offsetLeft;
     let mouseY = event.pageY - target.offsetTop;
 
@@ -57,7 +52,6 @@ export class ProjectsComponent {
 
   onViewDetailProject(id: number) {
     this.idProject.set(id);
-    console.log(this.idProject());
   }
 
 }

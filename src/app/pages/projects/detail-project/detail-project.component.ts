@@ -1,11 +1,12 @@
-import { Component, inject, model, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, model, OnInit, signal } from '@angular/core';
 import { SharedService } from '../../../services/shared.service';
 
 @Component({
   selector: 'app-detail-project',
   imports: [],
   templateUrl: './detail-project.component.html',
-  styleUrl: './detail-project.component.scss'
+  styleUrl: './detail-project.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DetailProjectComponent implements OnInit {
   idProject = model<number>();

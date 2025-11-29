@@ -22,13 +22,29 @@
 
   <app-hero id="hero" />
 
+  @defer (on viewport) {
   <app-about id="about" />
+  } @placeholder {
+  <div style="height: 500px;"></div>
+  }
 
+  @defer (on viewport) {
   <app-skills id="skills" />
+  } @placeholder {
+  <div style="height: 500px;"></div>
+  }
 
+  @defer (on viewport) {
   <app-projects id="projects" [(idProject)]="idProject" />
+  } @placeholder {
+  <div style="height: 500px;"></div>
+  }
 
+  @defer (on viewport) {
   <app-contact id="contact" />
+  } @placeholder {
+  <div style="height: 500px;"></div>
+  }
 
   <div class="toggle">
     <!-- <button (click)="toggleTheme()" class="p-2 bg-secondary rounded">
@@ -55,8 +71,17 @@
 
 
 @if (idProject() > 0) {
-  <div class="fixed top-0 left-0 w-full h-screen bg-primary z-40 overflow-x-hidden overflow-y-auto" 
-  @zoomIn>
-    <app-detail-project [(idProject)]="idProject" />
+<div class="fixed top-0 left-0 w-full h-screen bg-black/60 backdrop-blur-sm z-50 flex justify-center items-center p-4"
+  @zoomIn (click)="onCloseBackdrop($event)">
+  <app-detail-project [(idProject)]="idProject" (click)="$event.stopPropagation()" />
+</div>
+}
+
+<!-- Popup notification -->
+@if (sharedService.notification() !== null) {
+<div class="fixed top-4 right-4 z-50 animate-jump">
+  <div class="text-white p-4 rounded" [class]="sharedService.notification()!.type === 'error' ? 'bg-red-500' : 'bg-green-500'">
+    {{ sharedService.notification()!.message }}
   </div>
+</div>
 }
